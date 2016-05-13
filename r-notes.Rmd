@@ -1,0 +1,17 @@
+---
+title: "R Notes"
+author: "Stefan Eng"
+date: "May 13, 2016"
+output: html_document
+---
+
+## Create Title Over Multiple Graphs Made with `par`
+[Source](https://stat.ethz.ch/pipermail/r-help/2008-August/170110.html)
+"Set up a margin for the title and set the title to outer."
+```{r}
+par(mfrow=c(1,2),oma=c(0,0,2,0))
+x <- seq(-4, 4, length=100)
+plot(x, dnorm(x), type="l", main="N(0,1)")
+plot(x, dnorm(x, sd = .5), type="l", main="N(0,.5)")
+title("Two Normal Distributions", outer=TRUE)
+```
