@@ -6,7 +6,9 @@ output: html_document
 ---
 
 ## Create Title Over Multiple Graphs Made with `par`
+
 [Source](https://stat.ethz.ch/pipermail/r-help/2008-August/170110.html)
+
 "Set up a margin for the title and set the title to outer."
 ```{r}
 par(mfrow=c(1,2),oma=c(0,0,2,0))
@@ -14,4 +16,22 @@ x <- seq(-4, 4, length=100)
 plot(x, dnorm(x), type="l", main="N(0,1)")
 plot(x, dnorm(x, sd = .5), type="l", main="N(0,.5)")
 title("Two Normal Distributions", outer=TRUE)
+```
+
+## Create "Dot Plot"
+
+[Source](http://stackoverflow.com/questions/22092220/plot-only-y-axis-but-nothing-else)
+
+Not sure if dot plot is right. 
+All all data plotted on the x axis with no y axis.
+TODO: Figure out how to get rid of all the whitespace
+
+```{r}
+# Example Data
+x <- c(.69, .03, .74, .38, .65)
+# Just use 0 for all y values to get a number plot
+y <- rep(0,5)
+plot(x, y,xlim=c(0, 1), ylim=c(0,1),axes=FALSE, ylab="", xlab="Data")
+# Only show x axis
+axis(1, seq(0, 1, 0.2))
 ```
